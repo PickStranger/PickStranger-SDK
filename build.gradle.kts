@@ -46,26 +46,24 @@ dependencies {
 
 protobuf {
     protoc {
-        // 프로토콜 버퍼 컴파일러 버전 (Spring Boot 4 / Java 21 대응)
-        artifact = "com.google.protobuf:protoc:4.29.0"
+        artifact = "com.google.protobuf:protoc:YOUR_PROTOBUF_VERSION"
     }
     plugins {
-        id("grpc") {
-            artifact = "io.grpc:protoc-gen-grpc-java:1.80.0"
+        create("grpc") {
+            artifact = "io.grpc:protoc-gen-grpc-java:YOUR_GRPC_VERSION"
         }
-        id("grpckt") {
-            // 코틀린용 코루틴 기반 스텁 생성기
-            artifact = "io.grpc:protoc-gen-grpc-kotlin:1.5.0:jdk8@jar"
+        create("grpckt") {
+            artifact = "io.grpc:protoc-gen-grpc-kotlin:YOUR_GRPC_KOTLIN_VERSION:jdk8@jar"
         }
     }
     generateProtoTasks {
         all().forEach {
             it.plugins {
-                id("grpc")
-                id("grpckt")
+                create("grpc")
+                create("grpckt")
             }
             it.builtins {
-                id("kotlin") // 기본 메시지 객체도 코틀린으로 생성
+                create("kotlin")
             }
         }
     }
