@@ -1,5 +1,3 @@
-import com.google.protobuf.gradle.*
-
 plugins {
     kotlin("jvm") version "2.2.21"
     kotlin("plugin.spring") version "2.2.21"
@@ -46,14 +44,14 @@ dependencies {
 
 protobuf {
     protoc {
-        artifact = "com.google.protobuf:protoc:YOUR_PROTOBUF_VERSION"
+        artifact = "com.google.protobuf:protoc:21.0-rc-1"
     }
     plugins {
         create("grpc") {
-            artifact = "io.grpc:protoc-gen-grpc-java:YOUR_GRPC_VERSION"
+            artifact = "io.grpc:protoc-gen-grpc-java:1.80.0"
         }
         create("grpckt") {
-            artifact = "io.grpc:protoc-gen-grpc-kotlin:YOUR_GRPC_KOTLIN_VERSION:jdk8@jar"
+            artifact = "io.grpc:protoc-gen-grpc-kotlin:1.5.0:jdk8@jar"
         }
     }
     generateProtoTasks {
