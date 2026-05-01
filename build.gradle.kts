@@ -40,6 +40,8 @@ dependencies {
     annotationProcessor("org.projectlombok:lombok:1.18.44")
     // Source: https://mvnrepository.com/artifact/org.jetbrains.kotlinx/kotlinx-coroutines-core
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.10.2")
+    // Source: https://mvnrepository.com/artifact/com.google.protobuf/protobuf-kotlin
+    implementation("com.google.protobuf:protobuf-kotlin:4.34.1")
 }
 
 protobuf {
