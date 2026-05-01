@@ -3,7 +3,7 @@ package com.example.pickstranger.env
 import com.example.pickstranger.RevEnvironment
 
 object PickStrangerEnv {
-    @JvmSynthetic
+    @JvmStatic
     fun create(id:String): RevEnvironment.Builder {
         return RevEnvironment.newBuilder()
             .setBackendServiceUrl("http://localhost:8080")
