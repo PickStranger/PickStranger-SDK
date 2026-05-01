@@ -4,7 +4,7 @@ import com.example.pickstranger.RevEnvironment
 
 object PickStrangerEnv {
     @JvmSynthetic
-    fun create(): RevEnvironment.Builder {
+    fun create(id:String): RevEnvironment.Builder {
         return RevEnvironment.newBuilder()
             .setBackendServiceUrl("http://localhost:8080")
             .setProxyPort(9090)

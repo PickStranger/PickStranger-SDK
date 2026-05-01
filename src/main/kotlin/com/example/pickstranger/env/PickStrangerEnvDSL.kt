@@ -5,7 +5,7 @@ import com.example.pickstranger.RevEnvironmentKt
 import com.example.pickstranger.revEnvironment
 
 @JvmSynthetic
-fun PickStrangerEnvDSL(env: RevEnvironmentKt.Dsl.() -> Unit) : RevEnvironment {
+fun PickStrangerEnvDSL(id:String, env: RevEnvironmentKt.Dsl.() -> Unit) : RevEnvironment {
     return revEnvironment {
         backendServiceUrl = "http://localhost:8080"
         proxyPort = 9090
