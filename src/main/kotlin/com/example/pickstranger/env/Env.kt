@@ -2,7 +2,7 @@ package com.example.pickstranger.env
 
 import com.example.pickstranger.RevEnvironment
 
-object PickStrangerEnv {
+object Env {
     @JvmStatic
     fun create(id:String): RevEnvironment.Builder {
         return RevEnvironment.newBuilder()

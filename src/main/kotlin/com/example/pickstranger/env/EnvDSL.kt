@@ -14,7 +14,7 @@ fun PickStrangerEnvDSL(id:String, env: RevEnvironmentKt.Dsl.() -> Unit) : RevEnv
         aiResponseTimeout=5000
         blacklistDuration=5000
         version="v1.0.0"
-
+        
         env()
     }
 }

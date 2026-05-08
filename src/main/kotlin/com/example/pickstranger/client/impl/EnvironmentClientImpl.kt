@@ -5,12 +5,12 @@ import com.example.pickstranger.EnvironmentUpdateResponse
 import com.example.pickstranger.RevEnvironment
 import com.example.pickstranger.RevEnvironmentConfigServiceGrpc
 import com.example.pickstranger.RevEnvironmentConfigServiceGrpcKt
-import com.example.pickstranger.client.PickStrangerEnvironmentClient
+import com.example.pickstranger.client.EnvironmentClient
 import com.google.common.util.concurrent.ListenableFuture
 import io.grpc.ManagedChannel
 import java.util.concurrent.TimeUnit
 
-internal class PickStrangerEnvironmentClientImpl(private val channel: ManagedChannel) : PickStrangerEnvironmentClient {
+internal class EnvironmentClientImpl(private val channel: ManagedChannel) : EnvironmentClient {
     private val blockingStub = RevEnvironmentConfigServiceGrpc.newBlockingStub(channel)
     private val futureStub = RevEnvironmentConfigServiceGrpc.newFutureStub(channel)
     private val coroutineStub = RevEnvironmentConfigServiceGrpcKt.RevEnvironmentConfigServiceCoroutineStub(channel)

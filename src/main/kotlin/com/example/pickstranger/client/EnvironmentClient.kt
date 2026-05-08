@@ -4,7 +4,7 @@ import com.example.pickstranger.EnvironmentUpdateResponse
 import com.example.pickstranger.RevEnvironment
 import com.google.common.util.concurrent.ListenableFuture
 
-interface PickStrangerEnvironmentClient {
+interface EnvironmentClient {
     fun getEnvSync(serviceName: String): RevEnvironment
 
     fun updateEnvSync(env: RevEnvironment): EnvironmentUpdateResponse
