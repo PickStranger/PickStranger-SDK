@@ -78,3 +78,7 @@ kotlin {
 tasks.withType<Test> {
     useJUnitPlatform()
 }
+
+tasks.jar {
+    exclude("**/*.proto")
+}
