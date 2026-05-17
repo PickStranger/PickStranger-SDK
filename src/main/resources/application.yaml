@@ -1,3 +1,9 @@
 spring:
   application:
     name: pickstranger
+
+
+security:
+  secret: abc
+  timestamp:
+    tolerance: 100

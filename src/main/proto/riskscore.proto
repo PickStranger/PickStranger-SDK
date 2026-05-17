@@ -1,0 +1,19 @@
+syntax = "proto3";
+import "google/protobuf/timestamp.proto";
+
+package ai.v1;
+option go_package = "./pkg/gen/ai";
+option java_package = "com.example.pickstranger";
+
+option java_multiple_files = true;
+
+service RiskScoreService {
+
+}
+
+message RiskScoreContext {
+  string device_id = 1;
+  double risk_score=2;
+  google.protobuf.Timestamp timestamp =3;
+  string signature = 4;
+}
