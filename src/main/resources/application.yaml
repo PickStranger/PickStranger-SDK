@@ -2,8 +2,22 @@ spring:
   application:
     name: pickstranger
 
-
-security:
-  secret: abc
-  timestamp:
-    tolerance: 100
+pickstranger:
+  grpc:
+    host: localhost
+    port: 9090
+  server:
+    port: 9091
+  auth:
+    type: none          # none | jwt | api-key | mtls
+    jwt:
+      token: ""
+    api-key:
+      value: ""
+    mtls:
+      cert-path: ""
+      key-path: ""
+      ca-cert-path: ""
+  security:
+    secret: ""          # 프록시와 공유하는 시크릿, 비어있으면 검증 안함
+    timestamp-tolerance: 300

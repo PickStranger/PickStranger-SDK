@@ -6,9 +6,15 @@ option java_package = "com.example.pickstranger";
 
 option java_multiple_files = true;
 
+// 서비스 앱 → Reversed Proxy: 설정 관리
 service RevEnvironmentConfigService {
-  rpc GetEnvironment (EnvironmentRequester) returns(RevEnvironment);//환경변수를 가져옴
-  rpc UpdateEnvironment (RevEnvironment) returns (EnvironmentUpdateResponse);//환경 변수를 업데이트 함
+  rpc GetEnvironment (EnvironmentRequester) returns(RevEnvironment);
+  rpc UpdateEnvironment (RevEnvironment) returns (EnvironmentUpdateResponse);
+}
+
+// Reversed Proxy → 서비스 앱: 로그인 평가 결과 전달
+service RiskScoreListenerService {
+  rpc OnLoginEvaluated (LoginEvaluationEvent) returns (EvaluationAck);
 }
 
 message RevEnvironment {
@@ -20,14 +26,28 @@ message RevEnvironment {
   int32 ai_response_timeout = 5;
   int32 blacklist_duration = 6;
   repeated string whitelist_ips = 7;
-  string version = 8; // 혹시나 모를 버전 관리용
+  string version = 8;
 }
 
 message EnvironmentRequester {
-  string service_name=1;//요청하는 사람 명
+  string service_name = 1;
 }
 
-message EnvironmentUpdateResponse {//응답용 메세지
-  bool success = 1;//성공했는지
-  string msg = 2;//응답에 대한 메세지
+message EnvironmentUpdateResponse {
+  bool success = 1;
+  string msg = 2;
+}
+
+message LoginEvaluationEvent {
+  string request_id = 1;
+  string user_id = 2;
+  string client_ip = 3;
+  float risk_score = 4;
+  bool blocked = 5;
+  string reason = 6;
+  int64 timestamp = 7;
+}
+
+message EvaluationAck {
+  bool received = 1;
 }
