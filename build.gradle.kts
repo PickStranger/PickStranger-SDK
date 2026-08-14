@@ -40,11 +40,13 @@ dependencies {
     annotationProcessor("org.projectlombok:lombok:1.18.44")
     // Source: https://mvnrepository.com/artifact/org.jetbrains.kotlinx/kotlinx-coroutines-core
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.10.2")
+    // Source: https://mvnrepository.com/artifact/com.google.protobuf/protobuf-kotlin
+    implementation("com.google.protobuf:protobuf-kotlin:4.34.1")
 }
 
 protobuf {
     protoc {
-        artifact = "com.google.protobuf:protoc:21.0-rc-1"
+        artifact = "com.google.protobuf:protoc:4.35.0-RC2"
     }
     plugins {
         create("grpc") {
@@ -75,4 +77,8 @@ kotlin {
 
 tasks.withType<Test> {
     useJUnitPlatform()
+}
+
+tasks.jar {
+    exclude("**/*.proto")
 }
