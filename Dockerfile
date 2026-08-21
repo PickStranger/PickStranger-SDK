@@ -1,6 +1,8 @@
 FROM amazoncorretto:21 AS build
 WORKDIR /workspace
 
+RUN yum install -y findutils && yum clean all
+
 COPY . .
 RUN ./gradlew clean bootJar --no-daemon
 
