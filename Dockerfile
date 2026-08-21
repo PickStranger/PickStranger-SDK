@@ -14,9 +14,6 @@ RUN cp "$(ls build/libs/*.jar | grep -v plain)" app.jar
 FROM amazoncorretto:21-alpine3.24-jdk AS runtime
 WORKDIR /app
 
-RUN useradd --system --uid 10001 appuser
-USER appuser
-
 COPY --from=build /workspace/app.jar app.jar
 
 EXPOSE 9091
