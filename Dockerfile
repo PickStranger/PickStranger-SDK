@@ -1,12 +1,7 @@
 FROM amazoncorretto:21 AS build
 WORKDIR /workspace
 
-COPY gradlew .
-COPY gradle gradle
-COPY build.gradle.kts settings.gradle.kts ./
-RUN chmod +x gradlew && ./gradlew dependencies --no-daemon
-
-COPY src src
+COPY . .
 RUN ./gradlew clean bootJar --no-daemon
 
 FROM amazoncorretto:21 AS runtime
