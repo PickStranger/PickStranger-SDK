@@ -9,8 +9,8 @@ plugins {
 
 publishing {
     publications {
-        maven(MavenPublication) {
-            from components.java
+        create<MavenPublication>("maven") {
+            from(components["java"])
         }
     }
 }
