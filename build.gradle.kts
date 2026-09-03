@@ -7,6 +7,13 @@ plugins {
     id("maven-publish")
 }
 
+publishing {
+    publications {
+        maven(MavenPublication) {
+            from components.java
+        }
+    }
+}
 
 
 group = "com.example"
