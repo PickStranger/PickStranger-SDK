@@ -89,3 +89,12 @@ tasks.withType<Test> {
 tasks.jar {
     exclude("**/*.proto")
 }
+
+tasks.named<org.springframework.boot.gradle.tasks.bundling.BootJar>("bootJar") {
+    enabled = false
+}
+
+tasks.named<Jar>("jar") {
+    enabled = true
+    archiveClassifier.set("")   // -plain 제거
+}
